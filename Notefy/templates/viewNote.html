@@ -9,7 +9,7 @@
     <div class="container">
         {% if notes %}
             <!-- passing the notes object -->
-            <h2 style="text-align: center;">{{notes.note_title}}</h2> <br><!-- passing the note_title through the notes object-->
+            <h2 style="text-align: center;">{{notes.note_title}}</h2> <a href="{% url 'update_note' notes.pk %}" style="color: black; float:right">Edit Note</a> <br><!-- passing the note_title through the notes object-->
             {{notes.note_content}} <br><br><br><!-- passing the note_content values through the notes object to display-->
             {% if notes.note_images %}
                 <div class="container">
@@ -18,6 +18,13 @@
                     <a href="/media/{{notes.note_images}}" download>Download Image</a>
                 </div><br><br>
             {% endif %}
+            {% if notes.note_audios %}
+            <div class="container">
+                <audio controls>
+                    <source src="/media/{{notes.note_audio}}" type="audio/mpeg">
+                </audio>
+            </div><br>
+            {% endif %}
             {% if notes.note_videos %}
             <div class="container">
                 <video name='demo' controls width='50%' height='auto'>
@@ -25,8 +32,8 @@
                 </video>
 
             </div><br>
-            <a href="{% url 'update_note' notes.pk %}" style="color: black;">Update</a>
             {% endif %}
+            
         {% endif %}
 
     </div>
