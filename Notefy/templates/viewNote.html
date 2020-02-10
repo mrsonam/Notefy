@@ -18,12 +18,12 @@
                     <a href="/media/{{notes.note_images}}" download>Download Image</a>
                 </div><br><br>
             {% endif %}
-            {% if notes.note_audios %}
-            <div class="container">
-                <audio controls>
-                    <source src="/media/{{notes.note_audio}}" type="audio/mpeg">
-                </audio>
-            </div><br>
+            {% if notes.note_audio %}
+                <div class="container">
+                    <audio controls>
+                        <source src="/media/{{notes.note_audio}}" type="audio/mpeg">
+                    </audio>
+                </div><br>
             {% endif %}
             {% if notes.note_videos %}
             <div class="container">
