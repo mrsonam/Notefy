@@ -19,7 +19,7 @@ class Note(models.Model):
 
     def delete(self, *args, **kwargs):
         self.note_images.delete()
-        self.note_audios.delete()
+        self.note_audio.delete()
         self.note_videos.delete()
         super(Note, self).delete(*args, **kwargs)
 
