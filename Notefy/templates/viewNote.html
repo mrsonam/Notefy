@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}View Note{% endblock %}
+{% block content %}
+<body>
+    {% include 'navbar_auth.html' %}
+    <br><br><br><br><br><br><br><br>
+    <div class="container">
+        {% if notes %}
+            <!-- passing the notes object -->
+            <h2 style="text-align: center;">{{notes.note_title}}</h2> <br><!-- passing the note_title through the notes object-->
+            {{notes.note_content}} <br><br><br><!-- passing the note_content values through the notes object to display-->
+            {% if notes.note_images %}
+                <div class="container">
+                    <!-- passing the note_images values through the notes object display-->
+                    <a href="/media/{{notes.note_images}}" target="_blank"><img src="/media/{{notes.note_images}}" style="width: 200px; height: auto;"></a><br>
+                    <a href="/media/{{notes.note_images}}" download>Download Image</a>
+                </div><br><br>
+            {% endif %}
+            {% if notes.note_videos %}
+            <div class="container">
+                <video name='demo' controls width='50%' height='auto'>
+                    <source src="/media/{{notes.note_videos}}" type="video/mp4">
+                </video>
+
+            </div><br>
+            <a href="{% url 'update_note' notes.pk %}" style="color: black;">Update</a>
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}List Note{% endblock %}
+{% block content %}
+<body>
+    {% include 'navbar_auth.html' %}
+    <br><br><br><br><br><br><br><br>
+    <div class="container">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>Title</th>
+
+
+                </tr>
+            </thead>
+            {% if notes %}
+            <tbody>
+
+                {% for note in notes %}
+                <tr>
+                    {% if note.note_password %}
+                        <td>{{note.note_title}}&nbsp;<i class="fa fa-lock" aria-hidden="true"></i></td>
+                    {% else %}
+                        <td>{{note.note_title}}</td>
+                    {% endif %}
+                    <td>
+                        <!--Below given table calls for the viewNote function and
+                         passes the respective primary key to view the detail -->
+                        {% if note.note_password %}
+                            <a href="{% url 'notePassword' note.pk %}">View Note</a>
+                        {% else %}
+                            <a href="{% url 'viewNote' note.pk %}">View Note</a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <!--Below given table calls for the delete_note function and
+                         passes the respective primary key to delete the note -->
+                        <form method="post" action="{% url 'delete_note' note.pk %}" class="btn">
+                            {% csrf_token %}
+                            <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </form>
+
+                    </td>
+
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+            {% else %}
+            <div class="container">
+                <div class="row">
+                    <div class="card-body">
+                        <h1 class="card-title">No notes!</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            {% endif %}
+        <a href="/addNote">Add Note</a>
+    </div>
+
+    <script type="text/javascript"> 
+        document.getElementById('id_q').value= "{{query}}"
+    </script>
+</body>
+{% endblock %}
