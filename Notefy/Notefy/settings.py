@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'crispy_forms',
+    'notes.apps.NotesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,7 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 LOGIN_REDIRECT_URL ='/welcome'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_DIRS = [
