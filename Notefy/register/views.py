@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import login, logout, authenticate
 from .forms import UserUpdateForm, ProfileUpdateForm
-# from todolist.models import ToDoList
+from todolist.models import ToDoList
 from datetime import date
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required

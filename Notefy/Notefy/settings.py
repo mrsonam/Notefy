@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'notes.apps.NotesConfig',
     'todolist.apps.TodolistConfig',
+    'restapi.apps.RestapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
