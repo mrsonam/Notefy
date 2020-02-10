@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+{% block title %}To DoList{% endblock %}
+{% include 'navbar_auth.html' %}
+
+<br><br><br><br><br><br>
+<div class="container">
+    <!--form to add list-->
+    <form METHOD="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Add Lists" name="item">
+        <input type="date" name="notify_date">
+        <button type="submit">Add to List</button>
+    </form>
+    <br>
+    
+    <!--message that is displayed when an item is added-->
+    {% if messages %} <!--  this checks whether there is message or not -->
+        {% for message in messages %}
+        <div class="alert alert-secondary alert-dismissable" role="alert">
+            <button class="close" data-dismiss="alert">
+                <small><sup>x</sup></small>
+            </button>
+            {{ message}}
+        </div>
+        {% endfor %}
+    {% endif %}
+    
+    {%if lists%} <!--  this checks whether there is list or not -->
+    
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>List</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+    
+                </thead>
+
+                <tbody>
+                {% for items in lists %}
+                <!-- this displays the lists that are completed -->
+                {% if items.completed%}
+                <tr class="table-secondary">
+                    <td class="striker">{{items.item}}</td>
+                    <td><form method="post" action="{% url 'todolist:uncross' items.pk %}">
+                       {% csrf_token%}
+                       <button type="submit">Uncross</button>
+                   </form></td>
+                    <td><form method="POST" action="{% url 'todolist:delete_list' items.pk %}">
+                       {% csrf_token %}
+                       <button type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+                </form>
+            </td> 
+                </tr>
+                <!-- this displays the lists that are incomplete -->
+                {% else %}
+                <tr>
+                    <td>{{items.item}}</td>
+                    <td><form method="post" action="{% url 'todolist:cross_off' items.pk %}">
+                       {% csrf_token%}
+                       <button type="submit">Cross off</button>
+                   </form></td>
+                    <td><form method="post" action="{% url 'todolist:delete_list' items.pk %}">
+                       {% csrf_token%}
+                       <button type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+                   </form></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                </tbody>
+    
+    
+            </table>
+    
+    {% endif %}
+</div>
+    
+<script type="text/javascript">
+    document.getElementbyId('id_q').value="{{query}}"
+</script>
+    
+{% endblock %}
