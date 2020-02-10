@@ -3,8 +3,8 @@
 Group Name: Shiro
 
 Members:
-Sonam Wangdi Sherpa
-Tsering Dikey Lama
+Sonam Wangdi Sherpa,
+Tsering Dikey Lama,
 Pema Ngodup
 
 
