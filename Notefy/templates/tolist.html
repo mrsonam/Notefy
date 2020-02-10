@@ -48,11 +48,11 @@
                     <td class="striker">{{items.item}}</td>
                     <td><form method="post" action="{% url 'todolist:uncross' items.pk %}">
                        {% csrf_token%}
-                       <button type="submit">Uncross</button>
+                       <button type="submit">Uncheck</button>
                    </form></td>
                     <td><form method="POST" action="{% url 'todolist:delete_list' items.pk %}">
                        {% csrf_token %}
-                       <button type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+                       <button type="submit"><i class="fa fa-lock" aria-hidden="true"></i></button>
                 </form>
             </td> 
                 </tr>
@@ -62,11 +62,11 @@
                     <td>{{items.item}}</td>
                     <td><form method="post" action="{% url 'todolist:cross_off' items.pk %}">
                        {% csrf_token%}
-                       <button type="submit">Cross off</button>
+                       <button type="submit">Check</button>
                    </form></td>
                     <td><form method="post" action="{% url 'todolist:delete_list' items.pk %}">
                        {% csrf_token%}
-                       <button type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+                       <button type="submit"><i class="fa fa-lock" aria-hidden="true"></i></button>
                    </form></td>
                 </tr>
                 {% endif %}
