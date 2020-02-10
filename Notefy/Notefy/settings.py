@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'crispy_forms',
     'notes.apps.NotesConfig',
+    'todolist.apps.TodolistConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,12 +126,15 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL ='/welcome'
 
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
