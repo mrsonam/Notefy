@@ -1,0 +1,48 @@
+<!-- Navigation Bar to be displayed when the user is logged in -->
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529;">
+        <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/welcome">Notefy</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+
+            <li class="nav-item" style="padding-top: 10px;">
+
+                <form method="GET" class="search-bar">
+                    <input type="text" name="q" placeholder="Search" id="id_q">
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/welcome">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/listNote">Notes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/tolist">To-Do Lists</a>
+            </li>
+            <div class="dropdown nav-item">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        <img class=" rounded-circle account-img" src="{{ user.profile.image.url }}" style="width: 70px; height: 70px">
+
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #212529;">
+                    <a class="dropdown-item nav-link " style="background-color: #212529;" href="/updateProfile">Update Profile</a>
+                    <a class="dropdown-item nav-link " style="background-color: #212529;" href="/logout">Logout</a>
+                </div>
+            </div>
+            </ul>
+        </div>
+        </div>
+    </nav>
+</body>
+</html>

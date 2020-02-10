@@ -1,0 +1,50 @@
+.note{
+	background-color: white;
+	width: 80%;
+	height: 400px;
+	border: 1px solid red;
+	margin-left: 25px;
+}
+
+.btn-hov{
+	background-color: white;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	border: 1px solid lightgrey;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+}
+.noteimg{
+    height:200px;
+    width: 200px;
+}
+.btn-hov:hover {
+	border: 1px solid darkgrey;
+	color: red;
+}
+.first{
+	height: 100%;
+	width: 40%;
+	background-color: lightblue;
+	float: left;
+}
+.second{
+	height: 100%;
+	width: 30%;
+	background-color: lightgreen;
+	float: left;
+}
+.third{
+	height: 100%;
+	width: 30%;
+	background-color: pink;
+	float: left;
+}
+.cross{
+	height: 20px;
+	width: 20px;
+	border-radius: 100%;
+	border: 1px solid grey;
+	float: right;
+}
