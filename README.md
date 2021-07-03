@@ -1,4 +1,4 @@
-# Shiro_ADC1
+A note taking web application built using Python Django.
 
 Group Name: Shiro
 
